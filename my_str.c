@@ -9,10 +9,13 @@
 
 int my_str(char *str)
 {
+	int c = 0;
+
 	while (*str != '\0')
 	{
-		my_putchar((int)(*str));
+		my_putchar(*str);
 		str++;
+		c++;
 	}
-	return (0);
+	return (c);
 }
