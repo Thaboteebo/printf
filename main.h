@@ -42,6 +42,7 @@ struct fmt
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
+
 int handle_print(const char *fmt, int *i,
 		va_list list, char buffer[], int flags, int width, int precision, int size);
 
@@ -81,7 +82,7 @@ int print_pointer(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 
 /* FUNCTION to handle other spwcifiers */
-int get_flags(const char *format, int *i);
+iAOAnt get_flags(const char *format, int *i);
 int get_width(const char *format, int *i, va_list list);
 int get_precision(const char *format, int *i, va_list list);
 int get_size(const char *format, int *i);
@@ -101,6 +102,7 @@ int write_number(int is_positive, int ind, char buffer[],
 		int flags, int width, int precision, int size);
 int write_num(int ind, char bff[], int flags, int width, int precision,
 		int length, char padd, char extra_c);
+
 int write_pointer(char buffer[], int ind, int length,
 		int width, int flags, char padd, char extra_c, int padd_start);
 
@@ -115,5 +117,10 @@ int is_digit(char);
 
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
+
+int my_str(char *str);
+int my_putchar(int ch);
+int f_spec(va_list args_p, char specifier);
+void isvalue(long n, int base);
 
 #endif
