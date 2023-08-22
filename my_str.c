@@ -3,7 +3,7 @@
 /**
  * my_str - Function that outputs string
  * @str: String to be printed
- *
+ * Return: 0 on success
  * Description: Mainly for printing arrays of strings
  */
 
