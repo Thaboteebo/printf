@@ -25,5 +25,5 @@ int f_spec(va_list args_p, char specifier)
 	{
 		my_putchar('%');
 	}
-	return (specifier);
+	return (0);
 }

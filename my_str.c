@@ -7,11 +7,12 @@
  * Description: Mainly for printing arrays of strings
  */
 
-void my_str(char *str)
+int my_str(char *str)
 {
 	while (*str != '\0')
 	{
 		my_putchar((int)(*str));
 		str++;
 	}
+	return (0);
 }
