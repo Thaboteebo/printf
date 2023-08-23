@@ -1,6 +1,5 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -12,7 +11,7 @@
 #define F_MINUS 1
 #define F_PLUS 2
 #define F_ZERO 4
-#define F_HARSH 8
+#define F_HASH 8
 #define F_SPACE 16
 
 /* SIZE */
@@ -29,7 +28,7 @@
 struct fmt
 {
 	char fmt;
-	int (*fn)(va_list, char[], int, int, int);
+	int (*fn)(va_list, char[], int, int, int, int);
 };
 
 /**
@@ -38,18 +37,16 @@ struct fmt
  * @fmt: The format.
  * @fm_t: The function associated.
  */
-
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-
 int handle_print(const char *fmt, int *i,
 		va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
 
 /* FUNCTIONS to print numbers */
-int printf_char(va_list types, char buffer[],
+int print_char(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int print_string(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
@@ -61,7 +58,7 @@ int print_int(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int print_binary(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
-int print_unsigned(va_list types, int buffer[],
+int print_unsigned(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int print_octal(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
@@ -71,7 +68,7 @@ int print_hexa_upper(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 
 int print_hexa(va_list types, char map_to[],
-char buffer, int flags, char flags_ch, int width, int precision, int size);
+		char buffer[], int flags, char flags_ch, int width, int precision, int size);
 
 /* FUNCTION to print non printable characters */
 int print_non_printable(va_list types, char buffer[],
@@ -82,7 +79,7 @@ int print_pointer(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 
 /* FUNCTION to handle other spwcifiers */
-iAOAnt get_flags(const char *format, int *i);
+int get_flags(const char *format, int *i);
 int get_width(const char *format, int *i, va_list list);
 int get_precision(const char *format, int *i, va_list list);
 int get_size(const char *format, int *i);
